@@ -1,0 +1,22 @@
+#1 способ:
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                f = x and (y <= z) and ((not(y)) <= ((not(z)) == w))
+                print(x, y, z, w, int(f))
+                
+#2 способ:
+from itertools import*
+def f(x, y, z, w):
+    return (not(y <= (not(z <= w)))) and ((not z) <= ((not w) == x))
+
+
+for a in product([0, 1], repeat=4):
+    table = [(a[0], 1, 1, 1), (1, a[1], 0, 0), (0, a[2], 0, 0), (0, a[2], 1, a[3])]
+    if len(set(table)) != 3:
+        continue
+    for xyzw_in_rand_order in permutations("xyzw"):
+        if [f(**dict(zip(xyzw_in_rand_order, stroka))) for stroka in table] == [0, 1, 1]:
+            print(xyzw_in_rand_order)
