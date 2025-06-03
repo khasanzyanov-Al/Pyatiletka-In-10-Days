@@ -1,0 +1,33 @@
+from turtle import *
+pendown()
+tracer(0)
+left(90)
+k = 20
+left(90)
+screensize(2000, 2000)
+for i in range(9):
+    forward(27*k)
+    right(90)
+    forward(30*k)
+    right(90)
+penup()
+forward(3*k)
+right(90)
+forward(6*k)
+left(90)
+pendown()
+for i in range(9):
+    forward(77*k)
+    right(90)
+    forward(66*k)
+    right(90)
+penup()
+for x in range(-100, 100):
+    for y in range(-100, 100):
+        setpos(x * k, y* k)
+        dot(4)
+done()
+# k - это масштаб 
+# "for i in range(9)" это повторения по задаче
+# пендовн пенап это хвост 
+# нужно смотреть на позицию донателлы по задаче чтобы повернуть его в нужную сторону (изначально он стоит по оси х смотря при этом вправо 
