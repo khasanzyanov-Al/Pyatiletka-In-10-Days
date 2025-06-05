@@ -15,3 +15,12 @@ for i in product("BCADEF", repeat=5):
     if "BC" not in word and "CB" not in word:
         cnt += 1
     print(cnt)
+
+#прототип 3 с условием, где цифра не должна стоять с чётными
+from itertools import*
+cnt = 0
+for i in product("012345678", repeat=7):
+    num = "".join(i)
+    if num.count("5") == 1 and num[0] != "0" and all(x + "5" not in num and "5" + x not in num for x in "02468"):
+            cnt += 1
+print(cnt)
