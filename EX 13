@@ -15,3 +15,27 @@ for ip_add in ip_net:
     if bin(int(ip_add))[2:].zfill(32).count("1") % 2 != 0:
         cnt += 1
 print(cnt)
+
+#3.  2 ужасных пртотипа, которые попадались только в сборнике Крылова. Неизвестен один из байтов сети:
+
+1) Неизвестный байт в !МАСКЕ!
+from ipaddress import*
+for n in range(0, 9):
+    A = int("1" * n + "0" * (8 - n), 2)
+    ip_net = ip_network(f"255.224.33.160/255.255.{A}.0", 0)
+    for ip_add in ip_net:
+        if not (f"{ip_add:b}"[:16].count("1") >= f"{ip_add:b}"[16:].count("1")):
+            break
+        else:
+            print(A)
+
+2) Неизвестный байт в !АДРЕСЕ СЕТИ!
+from ipaddress import*
+for A in range(1, 256):
+    ip_net = ip_network(f"32.0.{A}.5/255.255.240.0", 0)
+    for ip_add in ip_net:
+        if not(f"{ip_add:b}"[:16].count("1") <= f"{ip_add:b}"[16:].count("1")):
+            break
+    else:
+        print(A)
+        break
