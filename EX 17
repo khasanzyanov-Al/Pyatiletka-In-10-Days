@@ -1,0 +1,8 @@
+f = open(r"D:\Pycharm Projects\Предбанник\Файлы\1")
+a = [int(s) for s in f]
+maxa = max(a)
+sum_pari = []
+for i in range(len(a) - 1):
+    if (a[i] + a[i + 1]) == maxa:
+        sum_pari.append(a[i]**2 + a[i + 1]**2)
+print(len(sum_pari), max(sum_pari))
