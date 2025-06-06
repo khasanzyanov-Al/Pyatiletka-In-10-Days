@@ -1,0 +1,17 @@
+#1 способ. Самый короткий, самый норм
+from ipaddress import*
+ip_net = ip_network("172.16.80.0/255.255.248.0")
+cnt = 0
+for ip_add in ip_net:
+    if f"{ip_add:b}".count("1") % 2 != 0:
+        cnt += 1
+print(cnt)
+
+#2 ишаковский способ. Этим пользоваться только если версия старая
+from ipaddress import*
+ip_net = ip_network("172.16.80.0/255.255.248.0")
+cnt = 0
+for ip_add in ip_net:
+    if bin(int(ip_add))[2:].zfill(32).count("1") % 2 != 0:
+        cnt += 1
+print(cnt)
