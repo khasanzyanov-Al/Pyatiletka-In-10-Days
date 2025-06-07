@@ -1,0 +1,33 @@
+#1 прототип, связанный с масками
+from fnmatch import*
+for x in range(2023, 10**8, 2023):
+    if fnmatch(str(x), "3?1*57") and x % 2023 == 0:
+        print(x, x // 2023)
+
+#2 прототип, связанный с делителями
+1) пример
+cnt = 0
+for n in range(350_301, 350_301 + 100):
+    deliteli = []
+    for i in range(2, n):
+        if n % i == 0:
+            deliteli.append(i)
+    if sum(deliteli) % 13 == 0 and sum(deliteli) != 0:
+        print(n, sum(deliteli) // 13)
+        cnt += 1
+    if cnt == 6:
+        break
+
+2) пример
+cnt = 0
+for n in range(700_000, 700_000+100):
+    M = 0
+    for i in range(2, n):
+        if n % i == 0:
+            M = i + n // i
+            break
+    if M % 10 == 4:
+        print(n, M)
+        cnt += 1
+    if cnt == 5:
+        break
