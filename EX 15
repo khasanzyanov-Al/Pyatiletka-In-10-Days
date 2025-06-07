@@ -1,0 +1,43 @@
+#1 прототип
+1)cпособ с флагом.
+def Del(n, m):
+    return n % m == 0
+
+
+for A in range(1, 1000):
+    A_podochel = True
+    for x in range(1, 1000):
+        if ((Del(x, A) and Del(x, 20)) <= ((not(Del(x, 20))) or Del(x, 25))) == False:
+            A_podochel = False
+            break
+    if A_podochel:
+        print(A)
+
+2) способ c for else
+for A in range(1, 1000):
+    for x in range(1, 1000):
+        if (((x & 18 == 0) or (x & 12 != 0)) or ((x & 45 != 0) <= (x & A == 0))) == 0:
+            break
+    else:
+        print(A)
+        break
+
+#2 прототип c двумя неизвестными переменными
+for A in range(1, 1000):
+    for x in range(1, 1000):
+        for y in range(1, 1000):
+            if ((15*x + y > A) or (x >= 40) or (y >= 80)) == 0:
+                break
+        if ((15 * x + y > A) or (x >= 40) or (y >= 80)) == 0:
+            break
+    else:
+        print(A)
+
+#3 прототип со списками
+P = list(range(3, 19))
+Q = list(range(11, 25))
+A = []
+for x in range(1, 1000):
+    if (((x in P) and (x in Q)) <= (x in A)) == 0:
+        A.append(x)
+print(A)
