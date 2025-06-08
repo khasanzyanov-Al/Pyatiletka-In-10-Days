@@ -1,0 +1,10 @@
+def task_23(start, end):
+    if start < end and start == 20
+        return 0
+    if start == end:
+        return 1
+    return task_23(start - 1, end) + task_23(start // 2, end) + task_23(start // 4, end)
+print(task_23(30, 8) * task_23(8, 1))
+
+# в принте пишем через какие он должен обязательно идти (берём из условия)
+# в первом условии пишем через какие он не должен идти (также берём из условия)
