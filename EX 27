@@ -50,3 +50,8 @@ for i in range(k):
 P_x = sum([x for x, y in best_centroids]) / k
 P_y = sum([y for x, y in best_centroids]) / k
 print(abs(P_x * 10000), abs(P_y * 10000))
+
+
+# если просят ЦЕЛАЯ ЧАСТЬ АБСОЛЮТНЫХ ЗНАЧЕНИЙ, то просто подели:
+# print(-5.6 // 1)
+# print(5.6 // 1)
