@@ -1,0 +1,52 @@
+#1 пример
+Пункт А)
+f = open(r"D:\EGE2025\Файлы 1\27")
+points = [list(map(float, s.replace(",", ".").split())) for s in f]
+k = 2
+clusters = [[], []]
+for x, y in points:
+    if y > 0:
+        clusters[0].append([x, y])
+    else:
+        clusters[1].append(([x, y]))
+
+best_centroids = [[], []]
+for i in range(k):
+    min_sum_dist = 10**10
+    for x1, y1 in clusters[i]:
+        sum_dist = 0
+        for x2, y2 in clusters[i]:
+            sum_dist += abs(x2 - x1) + abs(y2 - y1)
+        if sum_dist < min_sum_dist:
+            min_sum_dist = sum_dist
+            best_centroids[i] = [x1, y1]
+P_x = sum([x for x, y in best_centroids]) / k
+P_y = sum([y for x, y in best_centroids]) / k
+print(P_x * 10000, P_y * 10000)
+
+Пункт Б)
+f = open(r"D:\EGE2025\Файлы 1\27")
+points = [list(map(float, s.replace(",", ".").split())) for s in f]
+k = 3
+clusters = [[], [], []]
+for x, y in points:
+    if y > 0:
+        clusters[0].append([x, y])
+    elif x > 0:
+        clusters[1].append(([x, y]))
+    else:
+        clusters[2].append(([x, y]))
+
+best_centroids = [[], [], []]
+for i in range(k):
+    min_sum_dist = 10**10
+    for x1, y1 in clusters[i]:
+        sum_dist = 0
+        for x2, y2 in clusters[i]:
+            sum_dist += abs(x2 - x1) + abs(y2 - y1)
+        if sum_dist < min_sum_dist:
+            min_sum_dist = sum_dist
+            best_centroids[i] = [x1, y1]
+P_x = sum([x for x, y in best_centroids]) / k
+P_y = sum([y for x, y in best_centroids]) / k
+print(abs(P_x * 10000), abs(P_y * 10000))
